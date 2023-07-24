@@ -1,0 +1,28 @@
+/* Estilos similares a CreateBlog.css */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .form-container2 {
+    margin-top: 30px;
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-left: 10px;
+    background-color: #90b8db; /* Fondo blanco */
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn-group button {
+    margin-right: 10px;
+  }

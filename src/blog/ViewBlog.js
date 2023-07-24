@@ -4,7 +4,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { PDFDownloadLink, Document, Page, View, Text, StyleSheet } from '@react-pdf/renderer';
-import '../blogcss/ViewBlog.css'
+import '../blogcss/ViewBlog.css';
+import '../blogcss/ViewPdf.css'; // Importa el nuevo archivo CSS para el PDF
 
 const URI = 'http://localhost:8000/blogs';
 
@@ -32,7 +33,7 @@ const ViewBlog = () => {
     <Document>
       <Page>
         <View style={styles.container}>
-          <Text style={styles.title}>{blog.title}</Text>
+          <Text style={styles.title}>Paciente: {blog.title}</Text>
           <Text style={styles.content}>{blog.content}</Text>
           <Text style={styles.info}>DNI: {blog.dni}</Text>
           <Text style={styles.info}>Teléfono: {blog.telefono}</Text>
@@ -40,6 +41,9 @@ const ViewBlog = () => {
           <Text style={styles.info}>Número de Obra Social: {blog.numeroObraSocial}</Text>
           <Text style={styles.info}>Pedidos: {blog.pedidos}</Text>
           <Text style={styles.info}>Examen Físico: {blog.examenFisico}</Text>
+          <View style={styles.signatureContainer}>
+          <Text>Firma de la doctora______________</Text>
+        </View>
         </View>
       </Page>
     </Document>
@@ -49,19 +53,32 @@ const ViewBlog = () => {
   const styles = StyleSheet.create({
     container: {
       padding: 10,
+      textAlign: 'center', // Centra el contenido en el PDF
     },
     title: {
       fontSize: 20,
       fontWeight: 'bold',
       marginBottom: 10,
+      color: '#009688', // Cambia el color del título a verde
     },
     content: {
       fontSize: 14,
       marginBottom: 5,
+      color: '#333', // Cambia el color del texto a negro
     },
     info: {
       fontSize: 12,
       marginBottom: 3,
+      color: '#555', // Cambia el color de la información a gris oscuro
+    },
+    signatureContainer: {
+      marginTop: 20,
+      borderTop: '2px dotted #555',
+      paddingTop: 10,
+      textAlign: 'center',
+      fontStyle: 'italic',
+      fontSize: 14,
+      color: '#555',
     },
   });
 
@@ -78,37 +95,37 @@ const ViewBlog = () => {
 
   return (
     <div className='container'>
-    <div className='content-container'>
-      {/* Contenido del blog */}
-      <h2>{blog.title}</h2>
-      <p>Evaluacion Clinica:  {blog.content}</p>
-      <p>DNI: {blog.dni}</p>
-      <p>Teléfono: {blog.telefono}</p>
-      <p>Obra Social: {blog.obraSocial}</p>
-      <p>Número de Obra Social: {blog.numeroObraSocial}</p>
-      <p>Pedidos: {blog.pedidos}</p>
-      <p>Examen Físico: {blog.examenFisico}</p>
+      <div className='content-container'>
+        {/* Contenido del blog */}
+        <h2>{blog.title}</h2>
+        <p>Evaluacion Clinica:  {blog.content}</p>
+        <p>DNI: {blog.dni}</p>
+        <p>Teléfono: {blog.telefono}</p>
+        <p>Obra Social: {blog.obraSocial}</p>
+        <p>Número de Obra Social: {blog.numeroObraSocial}</p>
+        <p>Pedidos: {blog.pedidos}</p>
+        <p>Examen Físico: {blog.examenFisico}</p>
 
-      <div className='button-container'>
-        {/* Botón para editar el blog */}
-        <Link to={`/edit/${blog.id}`} className='btn btn-info'>
-          <FontAwesomeIcon icon={faEdit} /> Editar
-        </Link>
-        {/* Botón para descargar el PDF */}
-        <PDFDownloadLink document={<MyDocument blog={blog} />} fileName={`${blog.title}.pdf`} className='btn btn-primary'>
-          {({ blob, url, loading, error }) => (
-            <>
-              <FontAwesomeIcon icon={faFilePdf} /> {loading ? 'Generando PDF...' : 'Descargar PDF'}
-            </>
-          )}
-        </PDFDownloadLink>
-        {/* Botón para volver a la pantalla de ShowBlogs */}
-        <Link to='/showblogs' className='btn btn-secondary'>
-          Volver a la lista
-        </Link>
+        <div className='button-container'>
+          {/* Botón para editar el blog */}
+          <Link to={`/edit/${blog.id}`} className='btn btn-info'>
+            <FontAwesomeIcon icon={faEdit} /> Editar
+          </Link>
+          {/* Botón para descargar el PDF */}
+          <PDFDownloadLink document={<MyDocument blog={blog} />} fileName={`${blog.title}.pdf`} className='btn btn-primary'>
+            {({ blob, url, loading, error }) => (
+              <>
+                <FontAwesomeIcon icon={faFilePdf} /> {loading ? 'Generando PDF...' : 'Descargar PDF'}
+              </>
+            )}
+          </PDFDownloadLink>
+          {/* Botón para volver a la pantalla de ShowBlogs */}
+          <Link to='/showblogs' className='btn btn-secondary'>
+            Volver a la lista
+          </Link>
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

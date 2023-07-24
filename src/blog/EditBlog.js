@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../blogcss/EditBlog.css'; // Importa el nuevo archivo CSS
 
 const URI = 'http://localhost:8000/blogs';
 
@@ -59,104 +60,116 @@ const CompEditBlog = () => {
     }
   };
 
+  const handleVolverClick = () => {
+    navigate('/showblogs');
+    window.scrollTo(0, 0); // Posicionar la ventana en la parte superior de la página
+  };
+
   return (
-    <div>
-      <h3>Editar Nota</h3>
-      <form onSubmit={update}>
-        <div className='mb-3'>
-          <label className='form-label'>Title</label>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Contenido</label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>DNI</label>
-          <input
-            value={dni}
-            onChange={(e) => setDni(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Edad</label>
-          <input
-            value={edad}
-            onChange={(e) => setEdad(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Teléfono</label>
-          <input
-            value={telefono}
-            onChange={(e) => setTelefono(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Dirección</label>
-          <input
-            value={direccion}
-            onChange={(e) => setDireccion(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Examen Físico</label>
-          <input
-            value={examenFisico}
-            onChange={(e) => setExamenFisico(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Pedidos</label>
-          <input
-            value={pedidos}
-            onChange={(e) => setPedidos(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Obra Social</label>
-          <input
-            value={obraSocial}
-            onChange={(e) => setObraSocial(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <div className='mb-3'>
-          <label className='form-label'>Número de Obra</label>
-          <input
-            value={numeroObra}
-            onChange={(e) => setNumeroObra(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-        <button type='submit' className='btn btn-primary'>
-          Guardar
-        </button>
-      </form>
+    <div className="page-container">
+      <div className="form-container2">
+        <h3>Editar Nota</h3>
+        <form onSubmit={update}>
+          <div className="mb-3">
+            <label className="form-label">Nombre y Apellido</label>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Evaluacion Clinica</label>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">DNI</label>
+            <input
+              value={dni}
+              onChange={(e) => setDni(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Edad</label>
+            <input
+              value={edad}
+              onChange={(e) => setEdad(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Teléfono</label>
+            <input
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Dirección</label>
+            <input
+              value={direccion}
+              onChange={(e) => setDireccion(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Examen Físico</label>
+            <input
+              value={examenFisico}
+              onChange={(e) => setExamenFisico(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Pedidos</label>
+            <input
+              value={pedidos}
+              onChange={(e) => setPedidos(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Obra Social</label>
+            <input
+              value={obraSocial}
+              onChange={(e) => setObraSocial(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Número de Obra</label>
+            <input
+              value={numeroObra}
+              onChange={(e) => setNumeroObra(e.target.value)}
+              type="text"
+              className="form-control"
+            />
+          </div>
+          <div className="btn-group">
+            <button type="submit" className="btn btn-primary">
+              Guardar
+            </button>
+            <button className="btn btn-secondary" onClick={handleVolverClick}>
+              Volver
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
