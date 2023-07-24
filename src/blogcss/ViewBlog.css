@@ -1,0 +1,45 @@
+/* Estilos para centrar y recuadro */
+.container {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .content-container {
+    width: 80%;
+    padding: 20px;
+    border: 3px solid #000; /* Bordes negros más anchos */
+    border-radius: 10px; /* Bordes más redondeados */
+    background-color: #90b8db; /* Fondo blanco */
+    margin-top: 30px;
+    display: flex-end;
+    margin-left: 110px;
+  }
+
+/* En ViewBlog.css */
+.container p {
+  font-size: 19px;
+  line-height: 1.6; /* Ajusta el espaciado entre líneas */
+  color: #333; /* Cambia el color del texto */
+  margin-bottom: 10px; /* Añade un espacio entre párrafos */
+}
+
+.container p:first-child {
+  font-weight: bold; /* Aplica negrita solo al primer párrafo (si es necesario) */
+}
+
+.container p:last-child {
+  margin-bottom: 0; /* Elimina el espacio inferior del último párrafo */
+}
+  
+ /* Estilos para los botones */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Agrega un margen a los elementos dentro de .button-container, excepto el último */
+.button-container > *:not(:last-child) {
+  margin-right: 10px; /* Puedes ajustar este valor según el espacio deseado */
+}

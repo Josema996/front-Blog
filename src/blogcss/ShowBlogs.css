@@ -1,0 +1,11 @@
+/* ShowBlogs.css */
+
+/* Estilo para el botón Ver Detalles */
+.btn.btn-info {
+    margin-right: 10px; /* Puedes ajustar el valor del margen según tus preferencias */
+  }
+  
+  /* Estilo para el botón Eliminar */
+  .btn.btn-danger {
+    margin-right: 10px; /* Puedes ajustar el valor del margen según tus preferencias */
+  }
